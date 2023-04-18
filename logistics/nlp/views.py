@@ -1,31 +1,27 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Booking
-
+from .models import *
+from django.shortcuts import render, redirect
 # Create your views here.
-@login_required
-def book_shipment(request):
+def register_driver(request):
     if request.method == 'POST':
-        source = request.POST.get('source')
-        destination = request.POST.get('destination')
-        booking_date = request.POST.get('booking_date')
-        goods_type = request.POST.get('goods_type')
-        weight = request.POST.get('weight')
-        user = request.user
+        name = request.POST['name']
+        dob = request.POST['dob']
+        address = request.POST['address']
+        aadhar = request.POST['aadhar']
+        license = request.POST['license']
+        phone = request.POST['phone']
+        
+        driver = Driver(name=name, dob=dob, address=address, aadhar=aadhar, license=license, phone=phone)
+        driver.save()
 
-        booking = Booking.objects.create(
-            source=source,
-            destination=destination,
-            booking_date=booking_date,
-            goods_type=goods_type,
-            weight=weight,
-            user=user
-        )
+        return redirect('driver_list')
+    
+    return render(request, 'driver_register.html')
 
-        messages.success(request, 'Your booking has been confirmed!')
+def driver_list(request):
+    drivers=Driver.objects.all()
+    return render(request,"driver_list.html",{"drivers":drivers})
 
-    return render(request, 'book_shipment.html')
 
-def index(request):
-    return render(request, 'index.html')
