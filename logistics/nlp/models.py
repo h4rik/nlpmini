@@ -15,7 +15,7 @@ class Driver(models.Model):
         return self.name
     
 
-class WarehouseOwner(models.Model):
+class hubowner(models.Model):   #i have changed this and below class names form warehouseOwner and warehouse to hubowner and hub
     name = models.CharField(max_length=100)
     address = models.TextField()
     phone = models.CharField(max_length=10)
@@ -24,12 +24,13 @@ class WarehouseOwner(models.Model):
     def __str__(self):
         return self.name
     
-class Warehouse(models.Model):
-    owner=models.ForeignKey(WarehouseOwner,on_delete=models.CASCADE)
+class hub(models.Model):  #hub or warehouse both are same  
+    owner=models.ForeignKey(hubowner,on_delete=models.CASCADE)
     name=models.CharField(max_length=100)
     city=models.CharField(max_length=100)
     address=models.CharField(max_length=500)
-    storage_capacity=models.FloatField()
+    pincode=models.CharField(max_length=6)
+    hub_storage_capacity=models.FloatField()
     def __str__(self):
         return self.name
     
@@ -37,6 +38,6 @@ class Warehouse(models.Model):
 class trucks(models.Model):
     driver=models.ForeignKey(Driver,on_delete=models.CASCADE)
     number=models.CharField(max_length=10)
-    storage_capacity=models.FloatField()
+    truck_storage_capacity=models.FloatField()
     def __str__(self):
         return self.number

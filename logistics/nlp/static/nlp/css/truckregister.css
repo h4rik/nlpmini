@@ -1,0 +1,56 @@
+form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  textarea {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"][name="number_of_vehicle"] {
+    text-transform: uppercase;
+  }
+  
+  input[type="number"][name="storage_capacity"] {
+    width: 50%;
+  }
+  
+  select[name="city"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  input[type="submit"] {
+    background-color: #5d78ff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #5d78ff;
+  }
+  

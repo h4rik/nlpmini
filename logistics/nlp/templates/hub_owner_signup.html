@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hub Owner Registration</title>
+    <link rel="stylesheet" href="{% static 'nlp/css/hubowner.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Driver Registration Form</h1>
+      <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <textarea name="name" id="name" placeholder="Enter your name" required></textarea>
+
+        <label for="address">Address:</label>
+        <textarea name="address" id="address" placeholder="Enter your address" required></textarea>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+
+        <label for="aadhar">Aadhar Number:</label>
+        <input type="text" name="aadhar" id="aadhar" placeholder="Enter your Aadhar number" pattern="[0-9]{4} [0-9]{4} [0-9]{4}" required>
+
+        <input type="submit" value="Register">
+      </form>
+    </div>
+  </body>
+</html>

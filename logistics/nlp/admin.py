@@ -4,6 +4,6 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Driver)
-admin.site.register(WarehouseOwner)
+admin.site.register(hubowner)
 admin.site.register(trucks)
-admin.site.register(Warehouse)
+admin.site.register(hub)

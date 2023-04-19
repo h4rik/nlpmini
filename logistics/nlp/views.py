@@ -24,4 +24,15 @@ def driver_list(request):
     drivers=Driver.objects.all()
     return render(request,"driver_list.html",{"drivers":drivers})
 
+def index(request):
+    return render(request, 'index.html')
+
+def hub_owner(request):
+    return render(request,'hub_owner_signup.html')
+
+def hub(request):
+    return render(request,'hub_register.html')
+
+def trucks(request):
+    return render(request,'truck_register.html')
 
