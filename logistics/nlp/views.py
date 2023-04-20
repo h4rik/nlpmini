@@ -28,11 +28,66 @@ def index(request):
     return render(request, 'index.html')
 
 def hub_owner(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        address = request.POST['address']
+        phone = request.POST['phone']
+        email = request.POST['email']
+        aadhar = request.POST['aadhar']
+        
+        
+        hub_owner = hubowner(name=name, address=address, phone=phone, email=email, aadhar=aadhar)
+        hub_owner.save()
+
+        return redirect('driver_list')
+    
     return render(request,'hub_owner_signup.html')
 
-def hub(request):
-    return render(request,'hub_register.html')
+def hubs(request):
+    if request.method == 'POST':
+        owner=request.POST["owner_name"]
+        name = request.POST['name']
+        city=request.POST["hub_city"]
+        address = request.POST['address']
+        pincode = request.POST['pincode']
+        storage_capacity = request.POST['storage_capacity']
+        
+        
+        Hub = hub(owner=owner,name=name,city=city, address=address, pincode=pincode, hub_storage_capacity=storage_capacity)
+        Hub.save()
+    return render(request,'hubs_register.html')
 
-def trucks(request):
+def Trucks_view(request):
+    if request.method == 'POST':
+        name = request.POST['driver_name']
+        vehicle_number = request.POST['vehicle_number']
+        truck_capacity = request.POST['truck_capacity']
+
+        
+        Trucks = trucks(driver=name , number=vehicle_number, truck_storage_capacity=truck_capacity)
+        Trucks.save()
     return render(request,'truck_register.html')
 
+
+def login(request):
+    if request.method=="POST":
+        username=request.POST["username"]
+        password=request.POST["password"]
+        if hubowner.objects.filter(name=username).exists():
+            owner=hubowner.objects.get(name=username)
+            if password==owner.password:
+                return redirect("log")
+            else:
+                message="Invalid credentials!"
+                return render(request,"login.html",{"message":message})
+        else:
+            message="User does not exist!"
+            return render(request,"login.html",{"message":message})
+    else:
+        return render(request,"login.html")
+    
+def log(request):
+    if request.method=="POST":
+        location=request.POST["location"]
+        return render(request,"log.html",{"location":location})
+    return render(request,"log.html")

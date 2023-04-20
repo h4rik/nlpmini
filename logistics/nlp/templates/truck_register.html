@@ -7,27 +7,12 @@
   </head>
     <body>
         <div class="container">
-            <h1>Hub Registration</h1>
+            <h1>Truck Registration</h1>
             <form method="post">
                 {% csrf_token %}
                 
                 <label for="driver_name">Driver Name:</label>
-                <input type="text" name="driver_name" id="driver_name" value="{{ driver_name }}" readonly><br><br>
-              
-                <label for="dob">Driver Date of Birth:</label>
-                <input type="text" name="dob" id="dob" value="{{ dob }}" readonly><br><br>
-                
-                <label for="address">Driver Address:</label>
-                <textarea name="address" id="address" readonly>{{ address }}</textarea><br><br>
-                
-                <label for="aadhar">Driver Aadhar Number:</label>
-                <input type="text" name="aadhar" id="aadhar" value="{{ aadhar }}" readonly><br><br>
-                
-                <label for="license">Driver Driving Licence ID:</label>
-                <input type="text" name="license" id="license" value="{{ license }}" readonly><br><br>
-                
-                <label for="phone">Driver Phone Number:</label>
-                <input type="text" name="phone" id="phone" value="{{ phone }}" readonly><br><br>
+                <input type="text" name="driver_name" id="driver_name" placeholder="Enter your name" required><br><br>
                 
                 <label for="vehicle_number">Vehicle Number:</label>
                 <input type="text" name="vehicle_number" id="vehicle_number" placeholder="AP 39 AB 1234" required minlength="10" maxlength="10"><br><br>

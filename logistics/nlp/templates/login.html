@@ -1,0 +1,39 @@
+
+<!--{% if message %}
+{{message}}
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <input name="username" type="text" placeholder="Username">
+    <input name="password" type="password" placeholder="password">
+    <input type="submit" value="Submit">
+</form>-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nlp/css/login.css' %}">
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Login Form</h2>
+      </div>
+      {% if message %}
+      <div class="form-error">{{message}}</div>
+      {% endif %}
+      <form method="POST">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input name="username" type="text" class="form-input" placeholder="Username" required>
+        <label for="password">Password:</label>
+        <input name="password" type="password" class="form-input" placeholder="Password" required>
+        <input type="submit" class="form-submit" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>

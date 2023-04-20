@@ -1,0 +1,66 @@
+
+<form method="post">
+    {% csrf_token %}
+    <label for="hub_city">Hub City:</label>
+                <select name="location" id="hub_city" required>
+                <option value="">--Select city--</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="pune">pune</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="surat">surat</option>
+                <option value="Chennai">chennai</option>
+                </select>
+    <input type="submit" value="Get logistics">
+</form>
+
+<style>
+    form{
+        text-align: center;
+        margin-top: 100px;
+    }
+    p{
+        text-align: center;
+    }
+</style>
+{% if location == "Mumbai" %}
+<p>To deliver goods to Pune, start at the Mumbai warehouse and travel directly to the Pune warehouse (150km).<br>
+    To deliver goods to Ahmedabad, start at the Mumbai warehouse and travel directly to the Ahmedabad warehouse (525km).</p>
+{% endif %}
+{% if location == "Pune" %}
+<p>To deliver goods to Mumbai, start at the Pune warehouse and travel directly to the Mumbai warehouse (150km).<br>
+    To deliver goods to Bangalore, start at the Pune warehouse and travel directly to the Bangalore warehouse (835km).<br>
+    To deliver goods to Hyderabad, start at the Pune warehouse and travel directly to the Hyderabad warehouse (560km).</p>
+{% endif %}
+{% if location == "Delhi" %}
+<p>To deliver goods to Ahmedabad, start at the Delhi warehouse and travel directly to the Ahmedabad warehouse (940km).<br>
+    To deliver goods to Kolkata, start at the Delhi warehouse and travel directly to the Kolkata warehouse (1460km).</p>
+{% endif %}
+{% if location == "Ahmedabad" %}
+<p>To deliver goods to Mumbai, start at the Ahmedabad warehouse and travel directly to the Mumbai warehouse (525km).<br>
+    To deliver goods to Delhi, start at the Ahmedabad warehouse and travel directly to the Delhi warehouse (940km).<br>
+    To deliver goods to Surat, start at the Ahmedabad warehouse and travel directly to the Surat warehouse (265km).</p>
+{% endif %}
+{% if location == "Chennai" %}
+<p>
+    To deliver goods to Bangalore, start at the Chennai warehouse and travel directly to the Bangalore warehouse (350km).<br>
+To deliver goods to Hyderabad, start at the Chennai warehouse and travel directly to the Hyderabad warehouse (625km).</p>
+{% endif %}
+{% if location == "Kolkata" %}
+<p>To deliver goods to Delhi, start at the Kolkata warehouse and travel directly to the Delhi warehouse (1460km).
+    To deliver goods to Hyderabad, start at the Kolkata warehouse and travel directly to the Hyderabad warehouse (1600km).</p>
+{% endif %}
+{% if location == "Bangalore" %}
+<p>To deliver goods to Pune, start at the Bangalore warehouse and travel directly to the Pune warehouse (835km).<br>
+    To deliver goods to Chennai, start at the Bangalore warehouse and travel directly to the Chennai warehouse (350km).<br>
+    To deliver goods to Hyderabad, start at the Bangalore warehouse and travel directly to the Hyderabad warehouse (570km).</p>
+{% endif %}
+{% if location == "Hyderabad" %}
+<p>To deliver goods to Pune, start at the Hyderabad warehouse and travel directly to the Pune warehouse (560km).<br>
+    To deliver goods to Chennai, start at the Hyderabad warehouse and travel directly to the Chennai warehouse (625km).<br>
+    To deliver goods to Kolkata, start at the Hyderabad warehouse and travel directly to the Kolkata warehouse (1600km).<br>
+    To deliver goods to Bangalore, start at the Hyderabad warehouse and travel directly to the Bangalore warehouse (570km)</p>
+{% endif %}

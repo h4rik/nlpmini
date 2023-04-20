@@ -1,0 +1,68 @@
+/* Hub Registration Form CSS */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+form {
+  display: block;
+  margin: 0 auto;
+  text-align: left;
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+textarea {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+select {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,9l-6,6l-6-6L7.41,8.59z"/></svg>') no-repeat right #fff;
+  background-size: 20px;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  background-color: #5d78ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #5d78ff;
+}

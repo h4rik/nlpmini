@@ -21,11 +21,12 @@ class hubowner(models.Model):   #i have changed this and below class names form 
     phone = models.CharField(max_length=10)
     email = models.EmailField(max_length=254)
     aadhar = models.CharField(max_length=12)
+    password=models.CharField(max_length=100)
     def __str__(self):
         return self.name
     
 class hub(models.Model):  #hub or warehouse both are same  
-    owner=models.ForeignKey(hubowner,on_delete=models.CASCADE)
+    owner=models.CharField(max_length=100)
     name=models.CharField(max_length=100)
     city=models.CharField(max_length=100)
     address=models.CharField(max_length=500)
@@ -36,7 +37,7 @@ class hub(models.Model):  #hub or warehouse both are same
     
     
 class trucks(models.Model):
-    driver=models.ForeignKey(Driver,on_delete=models.CASCADE)
+    driver=models.CharField(max_length=100)
     number=models.CharField(max_length=10)
     truck_storage_capacity=models.FloatField()
     def __str__(self):

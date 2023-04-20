@@ -3,7 +3,7 @@
   <head>
     <title>Hub Registration Page</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'nlp/css/hub.css' %}">
+    <link rel="stylesheet" href="{% static 'nlp/css/hubs.css' %}">
   </head>
     <body>
         <div class="container">
@@ -11,26 +11,11 @@
             <form method="post">
                 {% csrf_token %}
             
-                <label for="owner_name">Owner Name:</label>
-                <input type="text" name="owner_name" id="owner_name" value="{{ owner_name }}" disabled><br><br>
+                <label for="name">Owner Name:</label>
+                <input type="text" name="owner_name" id="owner_name" placeholder="Enter owner name" required><br><br>
             
-                <label for="owner_dob">Owner Date of Birth:</label>
-                <input type="date" name="owner_dob" id="owner_dob" value="{{ owner_dob }}" disabled><br><br>
-            
-                <label for="owner_address">Owner Address:</label>
-                <textarea name="owner_address" id="owner_address" rows="3" disabled>{{ owner_address }}</textarea><br><br>
-            
-                <label for="owner_aadhar">Owner Aadhar Number:</label>
-                <input type="text" name="owner_aadhar" id="owner_aadhar" value="{{ owner_aadhar }}" disabled><br><br>
-            
-                <label for="owner_license">Owner Driving Licence ID:</label>
-                <input type="text" name="owner_license" id="owner_license" value="{{ owner_license }}" disabled><br><br>
-            
-                <label for="owner_phone">Owner Phone Number:</label>
-                <input type="tel" name="owner_phone" id="owner_phone" value="{{ owner_phone }}" disabled><br><br>
-            
-                <label for="hub_name">Hub Name:</label>
-                <textarea name="hub_name" id="hub_name" rows="3" placeholder="Enter hub name" required></textarea><br><br>
+                <label for="name">Hub Name:</label>
+                <textarea name="name" id="name" rows="3" placeholder="Enter hub name" required></textarea><br><br>
             
                 <label for="hub_city">Hub City:</label>
                 <select name="hub_city" id="hub_city" required>
@@ -39,14 +24,18 @@
                 <option value="Delhi">Delhi</option>
                 <option value="Bangalore">Bangalore</option>
                 <option value="Hyderabad">Hyderabad</option>
-                <option value="Chennai">Chennai</option>
+                <option value="pune">pune</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="surat">surat</option>
+                <option value="chennai">chennai</option>
                 </select><br><br>
             
-                <label for="hub_address">Hub Address:</label>
-                <textarea name="hub_address" id="hub_address" rows="3" placeholder="Enter hub address" required></textarea><br><br>
+                <label for="address">Hub Address:</label>
+                <textarea name="address" id="address" rows="3" placeholder="Enter hub address" required></textarea><br><br>
             
-                <label for="hub_pincode">Hub Pincode:</label>
-                <input type="text" name="hub_pincode" id="hub_pincode" placeholder="Enter hub pincode (6 digits)" pattern="[0-9]{6}" required><br><br>
+                <label for="pincode">Hub Pincode:</label>
+                <input type="text" name="pincode" id="pincode" placeholder="Enter hub pincode (6 digits)" pattern="[0-9]{6}" required><br><br>
             
                 <label for="storage_capacity">Storage Capacity:</label>
                 <textarea name="storage_capacity" id="storage_capacity" rows="3" placeholder="Enter storage capacity (in float)" required></textarea><br><br>
@@ -54,5 +43,5 @@
                 <input type="submit" value="Register">
             </form>
         </div>
-    /body>
+      </body>
 </html>
