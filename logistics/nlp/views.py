@@ -85,9 +85,71 @@ def login(request):
             return render(request,"login.html",{"message":message})
     else:
         return render(request,"login.html")
+
+
+import heapq
+
+def find_shortest_path(from_city, to_city):
+    cities = ['Pune', 'Bangalore', 'Chennai', 'Ahmedabad', 'Delhi', 'Surat', 'Hyderabad', 'Kolkata', 'Mumbai']
+    adjacency_matrix = [        
+        [0, 1, 0, 0, 0, 1, 0, 1, 1],
+        [1, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 1, 1, 0, 1, 1],
+        [0, 0, 0, 1, 0, 0, 1, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0, 1],
+        [1, 1, 1, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 1, 1, 0, 0, 0, 0],
+        [1, 0, 0, 1, 0, 0, 0, 0, 0]
+    ]
     
+    from_city_index = cities.index(from_city)
+    to_city_index = cities.index(to_city)
+    
+    distances = [float('inf')] * len(cities)
+    distances[from_city_index] = 0
+    
+    pq = [(0, from_city_index)]
+    
+    while pq:
+        distance, city_index = heapq.heappop(pq)
+        
+        if city_index == to_city_index:
+            break
+        
+        for i in range(len(cities)):
+            if adjacency_matrix[city_index][i] == 1:
+                new_distance = distance + 1
+                if new_distance < distances[i]:
+                    distances[i] = new_distance
+                    heapq.heappush(pq, (new_distance, i))
+    
+    if distances[to_city_index] == float('inf'):
+        return f"No path found between {from_city} and {to_city}"
+    
+    path = [to_city_index]
+    current = to_city_index
+    
+    while current != from_city_index:
+        for i in range(len(cities)):
+            if adjacency_matrix[i][current] == 1 and distances[i] == distances[current] - 1:
+                path.append(i)
+                current = i
+                break
+    
+    path.reverse()
+    
+    return " -> ".join(cities[i] for i in path)
+
+
 def log(request):
     if request.method=="POST":
-        location=request.POST["location"]
-        return render(request,"log.html",{"location":location})
+        from_city=request.POST["from_city"]
+        to_city=request.POST["to_city"]
+        driver_list=trucks.objects.filter(location=from_city)
+        return render(request,"log.html",{"path":find_shortest_path(from_city,to_city),"location":from_city,"drivers":driver_list})
     return render(request,"log.html")
+
+
+
+

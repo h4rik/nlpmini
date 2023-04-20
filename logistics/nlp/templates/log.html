@@ -1,31 +1,94 @@
+<style>
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    form label,
+    form select {
+      margin: 10px;
+    }
+    
+    form select {
+      width: 150px;
+    }
+    
+    form input[type="submit"] {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 150px;
+    }
+    
+    
+    
+    p {
+      margin: 10px 0;
+      text-align: center;
+    }
+    
+    .center {
+      text-align: center;
+    }
+    
+    .card {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px;
+      margin-top: 20px;
+      
+    }
+    body{
+        background-image: url("https://www.maplogistics.net/wp-content/uploads/2021/02/logistics-network2.jpg");
+    }
+    </style>
 
+
+<div class="card">
 <form method="post">
     {% csrf_token %}
-    <label for="hub_city">Hub City:</label>
-                <select name="location" id="hub_city" required>
+    <label for="hub_city">From City:</label>
+                <select name="from_city" id="hub_city" required>
                 <option value="">--Select city--</option>
                 <option value="Mumbai">Mumbai</option>
                 <option value="Delhi">Delhi</option>
                 <option value="Bangalore">Bangalore</option>
                 <option value="Hyderabad">Hyderabad</option>
-                <option value="pune">pune</option>
+                <option value="Pune">Pune</option>
                 <option value="Ahmedabad">Ahmedabad</option>
                 <option value="Kolkata">Kolkata</option>
-                <option value="surat">surat</option>
+                <option value="Surat">Surat</option>
+                <option value="Chennai">chennai</option>
+                </select>
+        <label for="hub_city">To City:</label>
+                <select name="to_city" id="hub_city" required>
+                <option value="">--Select city--</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Pune">pune</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Surat">surat</option>
                 <option value="Chennai">chennai</option>
                 </select>
     <input type="submit" value="Get logistics">
 </form>
 
-<style>
-    form{
-        text-align: center;
-        margin-top: 100px;
-    }
-    p{
-        text-align: center;
-    }
-</style>
+<h2>Trucks staring from the location {{location}} are: </h2>
 {% if location == "Mumbai" %}
 <p>To deliver goods to Pune, start at the Mumbai warehouse and travel directly to the Pune warehouse (150km).<br>
     To deliver goods to Ahmedabad, start at the Mumbai warehouse and travel directly to the Ahmedabad warehouse (525km).</p>
@@ -64,3 +127,17 @@ To deliver goods to Hyderabad, start at the Chennai warehouse and travel directl
     To deliver goods to Kolkata, start at the Hyderabad warehouse and travel directly to the Kolkata warehouse (1600km).<br>
     To deliver goods to Bangalore, start at the Hyderabad warehouse and travel directly to the Bangalore warehouse (570km)</p>
 {% endif %}
+
+<h2>Trucks: </h2>
+{% for driver in drivers %}
+    <h3>Driver Name: {{driver.driver}}</h3>
+    <h3>Truck number: {{driver.number}} </h3>
+{% empty %}
+    <h3>No Trucks in this location at this moment!</h3>
+{% endfor %}
+
+
+<center><h1>The path how the good reach is :{{path}}</h1></center>
+
+
+</div>

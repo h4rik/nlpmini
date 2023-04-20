@@ -40,5 +40,6 @@ class trucks(models.Model):
     driver=models.CharField(max_length=100)
     number=models.CharField(max_length=10)
     truck_storage_capacity=models.FloatField()
+    location=models.CharField(max_length=100)
     def __str__(self):
         return self.number
