@@ -1,57 +1,413 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>National logistics policy</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% load static %}
-	<link rel="stylesheet" href="{% static '\nlp\css\style.css' %}">
-</head>
-<body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li><br>
-				<li><a href="#">About</a></li><br>
-				<li><a href="#">Services</a></li><br>
-				<li><a href="#">Contact</a></li><br>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section class="start">
-			<h1>Hub and Spoke Model</h1>
-			<p>Optimizing transportation routes and schedules for efficient delivery</p>
-			<a href="#" class="cta">Get Started</a>
-		</section>
-		  <h1>Solving your most difficult logistics problems</h1>
-     <nav>
-       <ul>
-         <li><a href="{% url 'hub' %}">Hubs register</a></li><br><br>
-		 <li><a href="{% url 'login' %}">Best routes</a></li><br><br>
-		 <li><a href="{% url 'register_driver' %}">Driver register</a></li><br><br>
-		 <li><a href="{% url 'trucks' %}">Truck register</a></li><br><br>        
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    </nav> 
-    
-    <section class="features">
-			<h2>Key Features</h2>
-			<ul>
-				<li>Optimized hub locations based on demand and capacity</li>
-				<li>Efficient transportation routes and schedules</li>
-				<li>Real-time monitoring and adjustments for continuous improvement</li>
-			</ul>
-		</section>
-		<section class="about">
-			<h2>About Us</h2>
-			<p> national logistics policy is introduced by govt of India for effective way of transpoting goods , reducing cutting edge cost and ensuring last mile connectivity . Our team of experts can help you optimize your transportation network for maximum efficiency and cost savings.</p>
-			<a href="#" class="cta">Learn More</a>
-		</section>
-	</main>
-	<footer>
-		<p>&copy; 2023 National logistics policy@ All rights reserved.</p>
-	</footer>
-</body>
-</html>
-
+  <title>Brisk logistics solutions</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
   
+
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  {% load static %}
+
+  <link href="{% static '\nlp\css\index.css' %}" rel="stylesheet">
+  <style>
+    #logo
+    {
+      height:300;
+      width:300;
+      border-radius: 150;
+      float: left;
+    }
+  </style>
+
+  <!-- =======================================================
+  * Template Name: Logis
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>BLS</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <!--<li><a href="register.html">Register</a></li>-->
+          <li><a href="about.html">About</a></li>
+          <!--<li><a href="services.html">Services</a></li>-->
+          <!--<li><a href="pricing.html">fin calculator</a></li>-->
+          <!--<li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>-->
+          <li><a href="services.html" class="active">Services</a></li>
+          
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row gy-4 d-flex justify-content-between">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" style="display:flex;">
+          <h2 data-aos="fade-up">Brisk Logistics Solutions</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Leading website for providing optimum path for trucks traveling goods across various locations in India. </p>
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+          <img src="data:image/jpeg;base64,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"  style="height:300;width:300;border-radius: 150;" class="img-fluid mb-3 mb-lg-0" id="logo" alt="hello">
+        </div>
+
+      </div>
+    </div> 
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <!--end Featured Service Section-->
+
+    <!-- ======= About Us Section ======= -->
+    <!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <!-- End Services Section -->
+
+    <!-- ======= Call To Action Section 
+    <section id="call-to-action" class="call-to-action">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h3>Call To Action</h3>
+            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a class="cta-btn" href="#">Call To Action</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    ======= -->
+    
+<!--registrationForm    
+      
+    <section id="register" class="register">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center" id="row-justify-content-center"> 
+          <form id="registrationForm" onsubmit="return validateForm()">
+            <h2>Register here</h2>
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname">
+            <span id="firstnameError" class="error"></span>
+            
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname">
+            <span id="lastnameError" class="error"></span>
+            
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <span id="usernameError" class="error"></span>
+            
+            <label for="pan">PAN Number</label>
+            <input type="password" id="pan" name="pan">
+            <span id="panError" class="error"></span>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <span id="emailError" class="error"></span>
+            
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile">
+            <span id="mobileError" class="error"></span>
+          
+          <label for="gender">Gender</label>
+            <input type="radio" id="gender" name="gender" value="Male"><b> Male</b>
+          <input type="radio" id="gender" name="gender" value="Female"><b>Female</b>
+          
+          
+          <span id="mobileError" class="error"></span><br><br>
+          <label for="address">Address</label>
+            <textarea id="address" name="address" rows="5"></textarea>
+            <span id="addressError" class="error"></span>
+            
+            <input type="submit" value="Register">
+          </form>
+      </div>
+    </div>
+    </form>
+    </section>--><!-- End Call To Action Section -->
+
+    <!-- ======= Features Section ======= -->
+    <!-- End Features Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <!-- End Pricing Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <!-- End testimonial item -->
+
+            <!-- End testimonial item -->
+
+            <!-- End testimonial item -->
+
+          <!-- End Testimonials Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <span>Frequently Asked Questions</span>
+          <h2>Frequently Asked Questions</h2>
+
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-10">
+
+            <div class="accordion accordion-flush" id="faqlist">
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    what is brisk logistics solutions made of actually
+                  </button>
+                </h3>
+                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    It is made on the basis of national logistics policy
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    What is National logistics policy ?
+                  </button>
+                </h3>
+                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    The National Logistics Policy was launched by Prime Minister Narendra Modi on September 17, 20221. The goal of the policy is to lower the cost of logistics from its current 14% of GDP to less than 10% by 2022 despite the highly fragmented nature of India’s logistics industry2. The policy aims to make Indian goods more competitive while also promoting economic growth and expanding job possibilities2. The policy also aims to reduce logistics cost in India by 5% of GDP over the next five years
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    what does brisk logistics solutions actullay do ?
+                  </button>
+                </h3>
+                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Users or warehubs can login into websites and for them we will show best path available across 9 major metro cities in india.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    What are the main modules present in your website?
+                  </button>
+                </h3>
+                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    We provide different logins portals for Hub owners , truck owners , drivers which makes their work easier and faster.                   
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    How can we check the best route for a truck?
+                  </button>
+                </h3>
+                <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    There is seperate section called "Best route" where user can check the get the best possibel route based on location of the present hub .
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-6">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    What's the future scope of the project?
+                  </button>
+                </h3>
+                <div id="faq-content-6" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    As of now we have considered only 9 cities and only for road mode of transport , we will further expand to all other cities and towns in India and even all modes of transport 
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- # Faq item-->
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-info">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span>BRISK LOGISTICS SOLUTIONS</span>
+          </a>
+          <p>This website aims for faster movement of vehicles by providing best path to hub owners . They can even find trukcs in that area when they want to ship the goods</p>
+          <div class="social-links d-flex mt-4">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="{% url 'login' %}">Best route</a></li>
+            <li><a href="{% url 'hub' %}">Hubs registration</a></li>
+            <li><a href="{% url 'hub_owner' %}">Hubs Owner registration</a></li>
+            <li><a href="{% url 'register_driver' %}">Driver registration</a></li>
+            <li><a href="{% url 'trucks' %}">Trucks registration</a></li>
+          </ul>
+        </div>
+<!--
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>
+            A108 Adam Street <br>
+            New York, NY 535022<br>
+            United States <br><br>
+            <strong>Phone:</strong> 91+ 9999999999<br>
+            <strong>Email:</strong> GOFP@outlook.com<br>
+          </p>
+
+        </div>-->
+
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>BLS</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/ -->
+
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <!--Outer form validation-->
+  <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -15,9 +15,6 @@ def register_driver(request):
         
         driver = Driver(name=name, dob=dob, address=address, aadhar=aadhar, license=license, phone=phone)
         driver.save()
-
-        return redirect('driver_list')
-    
     return render(request, 'driver_register.html')
 
 def driver_list(request):
@@ -38,8 +35,8 @@ def hub_owner(request):
         
         hub_owner = hubowner(name=name, address=address, phone=phone, email=email, aadhar=aadhar)
         hub_owner.save()
-
-        return redirect('driver_list')
+        
+        return redirect("driver_list") 
     
     return render(request,'hub_owner_signup.html')
 
